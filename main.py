@@ -44,7 +44,7 @@ def on_message(ws, message):
         change_current = abs(changes[0] / prices[0]) * 100
         changes_data.append(change_current)
         slice_value = int(-3600*(1000/delay))
-        changes_data_per_hour = changes_data[-3:]
+        changes_data_per_hour = changes_data[slice_value:]
         max_changes_per_hour = float(max(changes_data_per_hour))
 
         if max_change != max_changes_per_hour and max_changes_per_hour > 0.02:
